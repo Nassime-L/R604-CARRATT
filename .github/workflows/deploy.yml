@@ -1,19 +1,22 @@
-name: Deploy to GitHub Pages
+name: Exemple de déploiement
 
 on:
   push:
     branches:
       - main  # Changez cela en la branche principale de votre dépôt si elle est différente
+  pull_request:
+	  branches:
+	  - main
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: vérification du code
         uses: actions/checkout@v2
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Execution du code bonjour.sh
+        uses: bash bonjour.sh
         with:
           deploy_key: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: /home/user/R604-CARRATT/fichiers.html # Spécifiez le répertoire contenant vos fichiers HTML
